@@ -43,6 +43,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
   // Bind the click event of each element to a function
   document.querySelectorAll(".back").forEach(card => {
     card.onclick = function(e) {
+      if (!memoryGame.canClick) {
+        return;
+      }
       // TODO: write some code here
       console.log("Card clicked: ", card);
       console.log(e);
@@ -60,9 +63,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
       memoryGame.pickedCards.push(card);
 
       if (memoryGame.pickedCards.length === 2) {
-        document.querySelectorAll(".card").forEach(card => {
-          card.classList.add("blocked");
-        });
+        memoryGame.canClick = false;
+        //document.querySelectorAll(".card").forEach(card => {
+          //card.classList.add("blocked");
+        //});
 
         if (
           !memoryGame.checkIfPair(
@@ -86,15 +90,17 @@ document.addEventListener("DOMContentLoaded", function(event) {
               elem.classList.toggle("front");
             });
             memoryGame.pickedCards = [];
-            document.querySelectorAll(".card").forEach(card => {
-              card.classList.remove("blocked");
-            });
-          }, 2000);
+            memoryGame.canClick = true;
+            //document.querySelectorAll(".card").forEach(card => {
+              //card.classList.remove("blocked");
+            //});
+          }, 750);
         } else {
           memoryGame.pickedCards = [];
-          document.querySelectorAll(".card").forEach(card => {
-            card.classList.remove("blocked");
-          });
+          memoryGame.canClick = true;
+          //document.querySelectorAll(".card").forEach(card => {
+            //card.classList.remove("blocked");
+          //});
         }
       }
     };

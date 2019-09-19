@@ -1,5 +1,6 @@
 class MemoryGame {
   constructor(cards) {
+    this.canClick = true;
     this.cards = cards;
     this.pickedCards = [];
     this.pairsClicked = 0;
