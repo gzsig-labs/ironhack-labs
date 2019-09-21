@@ -1,7 +1,7 @@
 // Write your Pizza Builder JavaScript in this file.
 
 // Constants 
-var basePrice = 10
+var initPrice = 10
 var ingredients = {
   pepperonni: {name: 'Pepperonni', price: 1},
   mushrooms: {name: 'Mushrooms', price: 1},
@@ -113,7 +113,7 @@ function renderButtons() {
 function renderPrice() {
   // Iteration 4: change the HTML of `<aside class="panel price">`
 
-  var totalPrice = basePrice
+  var totalPrice = initPrice
   var list = document.querySelector('aside.panel.price ul')
   list.innerHTML = ""
 
