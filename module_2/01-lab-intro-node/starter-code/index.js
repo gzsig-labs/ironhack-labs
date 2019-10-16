@@ -36,13 +36,9 @@ class SortedList {
   sum() {
     if (!this.length) return 0;
     let s = 0;
-    // return this.items.reduce((a, b) => {
-    //   a + b, 0;
-    // });
-    this.items.forEach(e => {
-      s += e;
-    });
-    return s;
+    return this.items.reduce((a, b) => {
+      return a + b;
+    }, 0);
   }
 }
 
