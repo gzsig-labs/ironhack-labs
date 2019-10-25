@@ -1,0 +1,7 @@
+<%for (let i = 0; i < tracks.length; i++){%>
+<div class="track">
+  <p><%=tracks[i].name%></p>
+  <audio controls="" name="media">
+    <source src="<%=tracks[i].preview_url%>" type="audio/mpeg"></audio>
+</div>
+<%}%>
